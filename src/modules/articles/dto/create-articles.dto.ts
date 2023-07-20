@@ -1,4 +1,3 @@
-export class createArticlesDto {
-  link: String;
-  summary: String;
+export class CreateArticlesDto {
+  links: string[];
 }
