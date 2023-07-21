@@ -1,73 +1,87 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Backend Project Readme
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This backend project is developed using PostgreSQL, NestJS, and TypeScript. It offers various features and functionalities to manage article summaries through links and URLs. The project utilizes the OpenAI API to extract data and summarize articles.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features and Functionality
 
-## Description
+### 1. Create Summary via Link and URL
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The project provides an API endpoint that allows users to create summaries by providing a link or URL to an article. The backend system will fetch the content of the article using the provided link and then use the OpenAI API to generate a summary of the article. Users can easily access this API to create concise summaries of articles they find interesting.
 
-## Installation
+### 2. Extract Data and Article Content
 
-```bash
-$ npm install
-```
+The "Create Summary" API not only generates a summary but also extracts relevant data and article content from the provided link. This data could include metadata, article title, author information, and other useful details. By leveraging the OpenAI API, this functionality ensures that users get comprehensive information about the articles they summarize.
 
-## Running the app
+### 3. Get All Summarized Articles
 
-```bash
-# development
-$ npm run start
+Another API endpoint is available to retrieve a list of all the previously summarized articles. This allows users to access their summarized articles and manage them efficiently.
 
-# watch mode
-$ npm run start:dev
+### 4. Delete Articles by Particular ID
 
-# production mode
-$ npm run start:prod
-```
+The project includes an API endpoint that enables users to delete a specific article based on its ID. This functionality helps users to remove articles they no longer need or want to keep in the system.
 
-## Test
+## Technologies Used
 
-```bash
-# unit tests
-$ npm run test
+- PostgreSQL: The relational database management system used to store and manage the summarized articles and related data.
+- NestJS: A progressive Node.js framework used to build the backend APIs in a modular and scalable manner.
+- TypeScript: The programming language used to develop the backend application, providing static typing and improved code readability.
+- OpenAI API: The OpenAI API is utilized to perform article summarization, extracting relevant data from articles.
 
-# e2e tests
-$ npm run test:e2e
+## Getting Started
 
-# test coverage
-$ npm run test:cov
-```
+To set up and run the project on your local machine, follow these steps:
 
-## Support
+1. Clone the repository from [GitHub Repo URL].
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. Install the required dependencies using the following command:
 
-## Stay in touch
+   ```
+   npm install
+   ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3. Set up the PostgreSQL database and update the connection configuration in the project to point to your database.
+
+4. Obtain an API key from OpenAI to access their API services for article summarization.
+
+5. Update the configuration file to include your OpenAI API key.
+
+6. Start the application using the following command:
+
+   ```
+   npm run start
+   ```
+
+## API Documentation
+
+- **Create Summary**
+
+  Endpoint: `/api/v1/articles/create-summary`
+  Method: `POST`
+  Request Body: `{ "links": ["ARTICLE_LINK_OR_URL"] }`
+  Response: `{ "title:"Article title", "content": "SUMMARIZED_ARTICLE_CONTENT", "Source":"Source of content like : bbc.com",
+"url:"article link" }`
+
+- **Get All Summarized Articles**
+
+  Endpoint: `/api/articles`
+  Method: `GET`
+  Response: `{ "articles": [ { "id": "ARTICLE_ID", "title:"Article title", "content": "SUMMARIZED_ARTICLE_CONTENT","Source":"Source of 
+content like : bbc.com","url:"article link" }, ...] }`
+
+- **Delete Article by ID**
+
+  Endpoint: `/api/articles/:id`
+  Method: `DELETE`
+  Response: `{ "message": "Article with ID ARTICLE_ID has been deleted successfully." }`
+
+## Contribution
+
+We welcome contributions to improve and enhance this project. If you find any issues or have ideas to make it better, please feel free to create a pull request or submit an issue on the [GitHub repository](URL).
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Replace `[GitHub Repo URL]` and `URL` with the actual URLs of your GitHub repository and issue tracker, respectively. Make sure to also update any other placeholders or configurations specific to your project. This README file provides an overview of the backend project, its features, setup instructions, API documentation, and licensing information.
