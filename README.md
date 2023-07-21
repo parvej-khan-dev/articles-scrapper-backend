@@ -53,26 +53,68 @@ To set up and run the project on your local machine, follow these steps:
 
 ## API Documentation
 
-- **Create Summary**
+Sure, here's the API documentation formatted in Markdown for easy readability:
 
-  Endpoint: `/api/v1/articles/create-summary`
-  Method: `POST`
-  Request Body: `{ "links": ["ARTICLE_LINK_OR_URL"] }`
-  Response: `{ "title:"Article title", "content": "SUMMARIZED_ARTICLE_CONTENT", "Source":"Source of content like : bbc.com",
-"url:"article link" }`
+### Create Summary
 
-- **Get All Summarized Articles**
+Endpoint: `/api/v1/articles/create-summary`
+Method: `POST`
 
-  Endpoint: `/api/articles`
-  Method: `GET`
-  Response: `{ "articles": [ { "id": "ARTICLE_ID", "title:"Article title", "content": "SUMMARIZED_ARTICLE_CONTENT","Source":"Source of 
-content like : bbc.com","url:"article link" }, ...] }`
+Request Body:
 
-- **Delete Article by ID**
+```json
+{
+  "links": ["ARTICLE_LINK_OR_URL"]
+}
+```
 
-  Endpoint: `/api/articles/:id`
-  Method: `DELETE`
-  Response: `{ "message": "Article with ID ARTICLE_ID has been deleted successfully." }`
+Response:
+
+```json
+{
+  "title": "Article title",
+  "content": "SUMMARIZED_ARTICLE_CONTENT",
+  "Source": "Source of content like: bbc.com",
+  "url": "article link"
+}
+```
+
+### Get All Summarized Articles
+
+Endpoint: `/api/articles`
+Method: `GET`
+
+Response:
+
+```json
+{
+  "articles": [
+    {
+      "id": "ARTICLE_ID",
+      "title": "Article title",
+      "content": "SUMMARIZED_ARTICLE_CONTENT",
+      "Source": "Source of content like: bbc.com",
+      "url": "article link"
+    },
+    ...
+  ]
+}
+```
+
+### Delete Article by ID
+
+Endpoint: `/api/articles/:id`
+Method: `DELETE`
+
+Response:
+
+```json
+{
+  "message": "Article with ID ARTICLE_ID has been deleted successfully."
+}
+```
+
+Please note that you can replace `ARTICLE_LINK_OR_URL`, `ARTICLE_ID`, `Article title`, and `SUMMARIZED_ARTICLE_CONTENT` with actual values when making API requests or handling responses.
 
 ## Contribution
 
