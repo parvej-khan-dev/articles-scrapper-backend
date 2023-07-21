@@ -31,7 +31,7 @@ The project includes an API endpoint that enables users to delete a specific art
 
 To set up and run the project on your local machine, follow these steps:
 
-1. Clone the repository from [GitHub Repo URL].
+1. Clone the repository from https://github.com/parvej-khan-dev/backend.git.
 
 2. Install the required dependencies using the following command:
 
@@ -123,7 +123,3 @@ We welcome contributions to improve and enhance this project. If you find any is
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
-
-Replace `[GitHub Repo URL]` and `URL` with the actual URLs of your GitHub repository and issue tracker, respectively. Make sure to also update any other placeholders or configurations specific to your project. This README file provides an overview of the backend project, its features, setup instructions, API documentation, and licensing information.
